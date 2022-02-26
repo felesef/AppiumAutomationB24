@@ -20,6 +20,21 @@ public class HomePage {
     @AndroidFindBy(accessibility = "minus")
     private MobileElement minus;
 
+    @AndroidFindBy(accessibility = "multiply")
+    private MobileElement multiply;
+
+    @AndroidFindBy(accessibility = "percent")
+    private MobileElement percent;
+
+    @AndroidFindBy(accessibility = "clear")
+    private MobileElement clear;
+
+    @AndroidFindBy(accessibility = "delete")
+    private MobileElement delete;
+
+    @AndroidFindBy(accessibility = "equals")
+    private MobileElement equals;
+
     @AndroidFindBy(id = "com.google.android.calculator:id/result_final")
     private MobileElement result;
 
@@ -44,7 +59,16 @@ public class HomePage {
             case MINUS:
                 this.minus.click();
                 break;
+            case MULTIPLY:
+                this.multiply.click();
+                break;
+            case DIVIDE:
+                this.divide.click();
+                break;
+            case EQUALS:
+                this.equals.click();
+            default:
+                throw new RuntimeException("Operator is not implemented!");
         }
     }
-
 }
