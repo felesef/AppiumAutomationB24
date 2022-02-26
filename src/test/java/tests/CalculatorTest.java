@@ -9,6 +9,8 @@ import org.junit.Test;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.remote.DesiredCapabilities;
+import org.openqa.selenium.support.ui.ExpectedCondition;
+import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
 import java.net.MalformedURLException;
@@ -33,6 +35,7 @@ public class CalculatorTest {
 
         //explicit wait in appium works exactly in the same way as in Selenium
         WebDriverWait wait = new WebDriverWait(driver, 20);
+        wait.until(ExpectedConditions.presenceOfElementLocated(By.id("com.google.android.calculator:id/digit_9")));
 
         driver.findElementById("com.google.android.calculator:id/digit_9").click();
         driver.findElement(By.id("com.google.android.calculator:id/digit_5")).click();
@@ -41,9 +44,12 @@ public class CalculatorTest {
 
         MobileElement equals = driver.findElement(MobileBy.AccessibilityId("equals"));
         equals.click();
-        Thread.sleep(3000);
+//        Thread.sleep(3000);
 
-        MobileElement result = driver.findElementById("com.google.android.calculator:id/result_final");
+        By resultBy = By.id("com.google.android.calculator:id/result_final");
+        wait.until(ExpectedConditions.presenceOfElementLocated(resultBy));
+        MobileElement result = driver.findElement(resultBy);
+
         Assert.assertEquals("Result is incorrect!", "99", result.getText());
 
         driver.closeApp();
