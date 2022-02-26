@@ -51,6 +51,10 @@ public class HomePage {
         return this.sum;
     }
 
+    public MobileElement getResult () {
+        return this.result;
+    }
+
     public void click(Operator operator) {
         switch (operator){
             case PLUS:

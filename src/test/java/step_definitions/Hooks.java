@@ -5,7 +5,6 @@ import io.cucumber.java.Before;
 import utils.Driver;
 
 public class Hooks {
-
     @Before
     public void setup(){
        System.out.println("Hooks setup");
