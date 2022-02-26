@@ -67,6 +67,7 @@ public class HomePage {
                 break;
             case EQUALS:
                 this.equals.click();
+                break;
             default:
                 throw new RuntimeException("Operator is not implemented!");
         }
